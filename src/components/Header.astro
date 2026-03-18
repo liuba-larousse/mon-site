@@ -1,0 +1,44 @@
+---
+import { siteConfig } from "../site.config";
+
+const nav = [
+  { href: "/", label: "Accueil" },
+  { href: "/services", label: "Services" },
+  { href: "/etudes-de-cas", label: "Études de cas" },
+  { href: "/blog", label: "Blog" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-brand-navy/10 bg-brand-cream/80 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/logo.svg" alt={siteConfig.brand} width="130" height="40" class="h-9 w-auto" />
+    </a>
+
+    <nav class="hidden items-center gap-5 text-sm text-brand-navy/80 md:flex">
+      {nav.map((item) => (
+        <a href={item.href} class="hover:text-brand-navy">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={siteConfig.cta.whatsappUrl}
+        class="hidden rounded-full border border-brand-navy/15 px-4 py-2 text-sm font-semibold text-brand-navy hover:bg-white/40 sm:inline-flex"
+      >
+        WhatsApp
+      </a>
+      <a
+        href={siteConfig.cta.callUrl}
+        class="inline-flex rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white hover:bg-brand-navy"
+      >
+        Réserver un appel
+      </a>
+    </div>
+  </div>
+</header>
+

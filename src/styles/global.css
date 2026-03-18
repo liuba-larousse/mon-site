@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Petites bases sans dépendre des reset d'intégration */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-brand-cream text-brand-navy antialiased font-sans;
+}
+
+::selection {
+  @apply bg-brand-navy text-white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display;
+}
+

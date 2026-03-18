@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout
+  title="Études de cas | Ghostwriting LinkedIn (FR)"
+  description="Exemples de résultats quand la clarté et la cohérence remplacent le posting aléatoire."
+>
+  <header class="max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">Études de cas</h1>
+    <p class="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+      Des exemples (adaptables) de ce qui se passe quand le positionnement et la régularité remplacent le hasard.
+    </p>
+  </header>
+
+  <section class="mt-10 grid gap-6 md:grid-cols-2">
+    {[
+      {
+        role: "Consultant B2B",
+        challenge: "Positionnement flou, publication irrégulière, peu de demandes entrantes malgré une forte expertise.",
+        what: ["Clarification de niche", "Optimisation profil", "Posts hebdomadaires en ghostwriting"],
+        results: ["+3,4× impressions (90 jours)", "+52% vues de profil", "Messages qualifiés"],
+      },
+      {
+        role: "Dirigeant SaaS",
+        challenge: "Visibilité, mais pas de conversations. Contenu trop “général”.",
+        what: ["Angles orientés buyer intent", "Cadence simple", "Preuves & cas d’usage"],
+        results: ["Davantage de RDV", "Meilleure reconnaissance", "Délai de vente réduit"],
+      },
+    ].map((cs) => (
+      <article class="rounded-3xl border border-slate-200 bg-white p-7 md:p-8">
+        <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">{cs.role}</div>
+        <h2 class="mt-2 text-xl font-semibold text-slate-950">Quand la clarté remplace le volume</h2>
+        <div class="mt-4 grid gap-4 text-sm text-slate-700">
+          <div>
+            <div class="font-semibold text-slate-900">Challenge</div>
+            <p class="mt-1 leading-relaxed text-slate-600">{cs.challenge}</p>
+          </div>
+          <div>
+            <div class="font-semibold text-slate-900">Ce qu’on a fait</div>
+            <ul class="mt-2 space-y-1 text-slate-600">
+              {cs.what.map((w) => (
+                <li>- {w}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <div class="font-semibold text-slate-900">Résultats</div>
+            <ul class="mt-2 space-y-1 text-slate-600">
+              {cs.results.map((r) => (
+                <li>- {r}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="mt-16">
+    <CTA title="Vous voulez des résultats similaires ?" subtitle="On commence par clarifier votre message. Ensuite, on construit une présence régulière qui attire les bons prospects." />
+  </section>
+</BaseLayout>
+

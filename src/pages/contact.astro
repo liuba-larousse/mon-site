@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout title="Contact | Réserver un appel ou WhatsApp" description="Contactez-nous via WhatsApp ou réservez un appel.">
+  <header class="max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">Contact</h1>
+    <p class="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+      Le plus simple : un appel rapide ou un message WhatsApp. Dites-moi votre contexte et votre objectif.
+    </p>
+  </header>
+
+  <section class="mt-10 grid gap-4 md:grid-cols-2">
+    <div class="rounded-3xl border border-slate-200 bg-white p-7 md:p-8">
+      <h2 class="text-xl font-semibold text-slate-950">Réserver un appel</h2>
+      <p class="mt-2 text-sm leading-relaxed text-slate-600 md:text-base">
+        Idéal pour clarifier votre positionnement et voir si on est alignés.
+      </p>
+      <a
+        class="mt-5 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+        href={siteConfig.cta.callUrl}
+      >
+        Réserver un appel
+      </a>
+    </div>
+
+    <div class="rounded-3xl border border-slate-200 bg-white p-7 md:p-8">
+      <h2 class="text-xl font-semibold text-slate-950">WhatsApp</h2>
+      <p class="mt-2 text-sm leading-relaxed text-slate-600 md:text-base">
+        Parfait si vous préférez écrire. Je réponds avec des prochaines étapes claires.
+      </p>
+      <a
+        class="mt-5 inline-flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+        href={siteConfig.cta.whatsappUrl}
+      >
+        Envoyer un message
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+

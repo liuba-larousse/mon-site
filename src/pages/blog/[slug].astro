@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.filter((p) => !p.data.draft).map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={`${post.data.title} | Blog`}
+  description={post.data.description}
+  canonicalPath={`/blog/${post.slug}/`}
+>
+  <article class="mx-auto max-w-3xl">
+    <header>
+      <a href="/blog" class="text-sm font-semibold text-slate-700 hover:underline">← Retour au blog</a>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{post.data.title}</h1>
+      <p class="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">{post.data.description}</p>
+      <div class="mt-4 text-sm text-slate-500">
+        {post.data.pubDate.toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" })}
+      </div>
+    </header>
+
+    <div class="prose prose-slate mt-10 max-w-none prose-headings:tracking-tight prose-a:text-slate-900">
+      <Content />
+    </div>
+
+    <div class="mt-14">
+      <CTA />
+    </div>
+  </article>
+</BaseLayout>
+

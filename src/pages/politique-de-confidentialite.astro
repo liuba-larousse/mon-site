@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout title={`Politique de confidentialité | ${siteConfig.brand}`} description="Politique de confidentialité.">
+  <article class="mx-auto max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">Politique de confidentialité</h1>
+    <p class="mt-6 text-sm leading-relaxed text-slate-600">
+      Remplacez ce contenu par votre politique (cookies, analytics, formulaires, etc.).
+    </p>
+    <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-7 text-sm text-slate-700">
+      <p><strong>Responsable :</strong> {siteConfig.legalName}</p>
+      <p class="mt-2"><strong>Finalité :</strong> À compléter</p>
+      <p class="mt-2"><strong>Durée :</strong> À compléter</p>
+    </div>
+  </article>
+</BaseLayout>
+
